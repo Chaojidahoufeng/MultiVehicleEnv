@@ -165,8 +165,6 @@ class Scenario(BaseScenario):
                     scale = world.field_half_size[idx]
                     trans = world.field_center[idx]
                     norm_pos = np.random.uniform(-0.5,+0.5)
-                    # norm_pos = 8
-                    # norm_pos = norm_pos + (0.5 if norm_pos>0 else -0.5)
                     landmark.state.coordinate[idx] = norm_pos * scale + trans
                 all_circle.append((landmark.state.coordinate[0],landmark.state.coordinate[1],landmark.radius))
     
