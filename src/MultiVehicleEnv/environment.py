@@ -110,7 +110,7 @@ class MultiVehicleEnv(gym.Env):
             self.world._check_collision()
             if self.GUI_port is not None:
                 # if use GUI, slow down the simulation speed
-                #time.sleep(self.world.sim_t)
+                time.sleep(self.world.sim_t)
                 self.dumpGUI()
         
         self.world._update_laser_sim_step()
