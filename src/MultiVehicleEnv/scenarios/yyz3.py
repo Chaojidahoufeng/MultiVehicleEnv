@@ -249,6 +249,9 @@ class Scenario(BaseScenario):
         # formation reward
         zip_list = zip(world.vehicle_list,
                        world.landmark_list)
+
+        import pdb
+        pdb.set_trace()
         
         for other_agent in world.vehicle_list:
             if other_agent == agent:
