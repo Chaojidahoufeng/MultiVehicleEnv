@@ -304,11 +304,19 @@ class Scenario(BaseScenario):
             agt_dis.append(dis2agt)
             agt_ang.append(np.array([ang]))
 
+        obstacle_dis = []
+        obstacle_ang = []
+        for obstacle in world.obstacle_list:
+            ang = self.get_relAngle(agent_data, obstacle)
+            dis2agt = np.array([norm(np.array(obstacle.state.coordinate) - np.array(agent.state.coordinate))])
+            obstacle_dis.append(dis2agt)
+            obstacle_ang.append(np.array([ang]))
+
         #for _ in range(2):
         #    agt_dis.append(np.array([0.0]))
         #    agt_ang.append(np.array([0.0]))
         #print(agt_dis , agt_ang , target_ang , target_dis , formation_err)
-        return np.concatenate(agt_dis + agt_ang + target_ang + target_dis + formation_err)
+        return np.concatenate(agt_dis + agt_ang + obstacle_dis + obstacle_ang + formation_err)
 
 
     def info(self, agent:Vehicle, world:World):
