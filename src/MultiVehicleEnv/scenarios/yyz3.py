@@ -257,7 +257,7 @@ class Scenario(BaseScenario):
             if other_agent == agent:
                 continue
             else:
-                rew -= 10* (coord_dist(other_agent.coordinate, agent.coordinate) - self.args.ideal_side_len)
+                rew -= 10* abs(coord_dist(other_agent.coordinate, agent.coordinate) - self.args.ideal_side_len)
 
         return rew
 
