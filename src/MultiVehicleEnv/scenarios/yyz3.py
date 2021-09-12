@@ -146,7 +146,7 @@ class Scenario(BaseScenario):
         world.data_slot['total_step_number'] = 0
         # set random initial states
         for agent in world.vehicle_list:
-            agent.state.theta = np.random.uniform(0,1/2*3.14159)
+            agent.state.theta = np.random.uniform(0,2*3.14159)
             #agent.state.theta = 1/4 * 3.14159 
             agent.state.vel_b = 0
             agent.state.phi = 0
