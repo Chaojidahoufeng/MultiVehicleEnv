@@ -84,7 +84,7 @@ class Scenario(BaseScenario):
 
         # set world.GUI_port as port dir when usegui is true
         if args.usegui:
-            world.GUI_port = args.guiport
+            world.GUI_port = args.gui_port
         else:
             world.GUI_port = None
 
