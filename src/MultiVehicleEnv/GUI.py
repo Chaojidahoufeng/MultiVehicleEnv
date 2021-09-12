@@ -43,7 +43,8 @@ class GUI(object):
             length_x = (self.field_range[2]-self.field_range[0])
             length_y = (self.field_range[3]-self.field_range[1])
             # 1.4 times of field range for camera range
-            gap = 0.5
+            #gap = 0.1
+            gap=1.0
             self.cam_bound = [center_x - (0.5+gap)*length_x, (1+gap*2)*length_x, center_y - (0.5+gap)*length_y, (1+gap*2)*length_y ]
 
         screen = pyglet.canvas.get_display().get_default_screen()
