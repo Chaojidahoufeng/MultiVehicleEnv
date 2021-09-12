@@ -250,14 +250,12 @@ class Scenario(BaseScenario):
         zip_list = zip(world.vehicle_list,
                        world.landmark_list)
 
-        import pdb
-        pdb.set_trace()
         
         for other_agent in world.vehicle_list:
             if other_agent == agent:
                 continue
             else:
-                rew -= 10* abs(coord_dist(other_agent.coordinate, agent.coordinate) - self.args.ideal_side_len)
+                rew -= 10* abs(coord_dist(other_agent.state.coordinate, agent.state.coordinate) - self.args.ideal_side_len)
 
         return rew
 
