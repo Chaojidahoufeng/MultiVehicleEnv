@@ -278,7 +278,6 @@ class Scenario(BaseScenario):
     def observation(self,agent:Vehicle, world:World):
         
         agent_data = world.data_interface[agent.vehicle_id]
-        print(agent_data)
         agent.dis2goal_prev = agent.dis2goal
 
         target_x = world.landmark_list[0].state.coordinate[0]
