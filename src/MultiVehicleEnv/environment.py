@@ -103,6 +103,8 @@ class MultiVehicleEnv(gym.Env):
         # advance world state
         self.old_world = copy.deepcopy(self.world)
         
+        import pdb
+        pdb.set_trace()
         
         for idx in range(self.world.sim_step):
             self.total_time += self.world.sim_t
