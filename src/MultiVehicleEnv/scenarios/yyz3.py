@@ -262,9 +262,14 @@ class Scenario(BaseScenario):
             else:
                 spring_rew -= 10* abs(coord_dist(other_agent.state.coordinate, agent.state.coordinate) - self.args.ideal_side_len)
 
+        motion_rew = - agent.state.vel_b**2
+
         rew = rew + \
               self.args.form_rew_weight * formation_rew + \
-              self.args.spring_rew_weight * spring_rew
+              self.args.spring_rew_weight * spring_rew + \
+              self.args.motion_rew_weight * motion_rew
+
+        
 
 
         return rew
