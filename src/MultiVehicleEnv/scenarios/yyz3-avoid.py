@@ -168,12 +168,17 @@ class Scenario(BaseScenario):
                     landmark.state.coordinate[idx] = norm_pos * scale + trans
                 all_circle.append((landmark.state.coordinate[0],landmark.state.coordinate[1],landmark.radius))
     
-            for obstacle in world.obstacle_list:
+            for index, obstacle in enumerate(world.obstacle_list):
                 for idx in range(2):
                     scale = world.field_half_size[idx]
                     trans = world.field_center[idx]
                     norm_pos = np.random.uniform(-1,+1)
                     obstacle.state.coordinate[idx] = norm_pos * scale*0.5 + trans # Why?
+
+                if idx == 0:
+                    obstacle.state.coordinate = [0.9656, -0.8945]
+                elif idx == 1:
+                    obstacle.state.coordinate = [-0.9839, -0.7211]
                 all_circle.append((obstacle.state.coordinate[0],obstacle.state.coordinate[1],obstacle.radius))
 
 
@@ -233,6 +238,7 @@ class Scenario(BaseScenario):
             direction = [real_landmark.state.coordinate[0] - agent.state.coordinate[0],
                          real_landmark.state.coordinate[1] - agent.state.coordinate[1]]
             agent.data_slot['direction_obs'] = world.data_slot['direction_decoder'][encode_direction(direction)]
+
 
 
     def formation_reward(self, agent, world):
