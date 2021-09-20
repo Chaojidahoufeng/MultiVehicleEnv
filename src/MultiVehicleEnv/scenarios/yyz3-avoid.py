@@ -154,6 +154,7 @@ class Scenario(BaseScenario):
             agent.state.ctrl_phi = 0
             agent.state.movable = True
             agent.state.crashed = False
+            agent.r_safe = 0.25
         
         # place all landmark,obstacle and vehicles in the field with out conflict
         conflict = True
@@ -261,6 +262,7 @@ class Scenario(BaseScenario):
         if agent.state.crashed:
             print('crash!')
             rew -= 10.0
+        
 
         formation_rew = self.formation_reward(agent, world)
         
