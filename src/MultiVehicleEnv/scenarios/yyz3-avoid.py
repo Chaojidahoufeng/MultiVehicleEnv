@@ -175,9 +175,11 @@ class Scenario(BaseScenario):
                     norm_pos = np.random.uniform(-1,+1)
                     obstacle.state.coordinate[idx] = norm_pos * scale*0.5 + trans # Why?
 
-                if idx == 0:
+                obstacle.radius = 0.14
+
+                if index == 0:
                     obstacle.state.coordinate = [0.9656, -0.8945]
-                elif idx == 1:
+                elif index == 1:
                     obstacle.state.coordinate = [-0.9839, -0.7211]
                 all_circle.append((obstacle.state.coordinate[0],obstacle.state.coordinate[1],obstacle.radius))
 
