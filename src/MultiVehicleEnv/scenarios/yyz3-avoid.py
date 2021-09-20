@@ -261,7 +261,7 @@ class Scenario(BaseScenario):
         # collision reward
         if agent.state.crashed:
             print('crash!')
-            rew -= 10.0
+            rew -= 20.0
         
 
         formation_rew = self.formation_reward(agent, world)
