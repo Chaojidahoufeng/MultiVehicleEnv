@@ -28,6 +28,7 @@ class MultiVehicleEnv(gym.Env):
 
         self.GUI_port = GUI_port
         self.GUI_file:Union[BinaryIO,None]=None
+        self.n = len(world.vehicle_list)
 
         
         # scenario callbacks
@@ -49,12 +50,17 @@ class MultiVehicleEnv(gym.Env):
                 self.action_space.append(spaces.Discrete(len(vehicle.discrete_table)))
         # observation space
         self.observation_space = []
+        self.share_observation_space = []
+        share_obs_dim = 0
         for vehicle in self.world.vehicle_list:
             if self.observation_callback is None:
                 obs_dim = 0
             else:
                 obs_dim = len(self.observation_callback(vehicle, self.world))
+            share_obs_dim += obs_dim
             self.observation_space.append(spaces.Box(low=-np.inf, high=+np.inf, shape=(obs_dim,), dtype=np.float32))
+        self.share_observation_space = [spaces.Box(
+            low=-np.inf, high=+np.inf, shape=(share_obs_dim,), dtype=np.float32)] * self.n
         self.GUI = None
 
     # get info used for benchmarking

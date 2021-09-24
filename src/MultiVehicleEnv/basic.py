@@ -38,6 +38,8 @@ class VehicleState(object):
         self.movable:bool = True
         # Default is False and be setted as True when crashed into other collideable object.
         self.crashed:bool = False
+        # Communication
+        self.c:List[float]=[]
 
 
 class Vehicle(object):
