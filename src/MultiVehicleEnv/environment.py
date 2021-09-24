@@ -164,7 +164,7 @@ class MultiVehicleEnv(gym.Env):
     
     def render(self, mode = 'human'):
         if self.GUI is None:
-            self.GUI = GUI(port_type='direct', gui_port=self, fps = 24)
+            self.GUI = GUI(port_type='direct', gui_port=self, fps = 24, mode=mode)
             self.GUI.init_viewer()
             self.GUI.init_object()
         results = self.GUI._render()

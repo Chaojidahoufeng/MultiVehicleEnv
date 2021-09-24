@@ -5,7 +5,7 @@ import pyglet
 import os
 
 class GUI(object):
-    def __init__(self,port_type:str = 'file',gui_port = '/dev/shm/gui_port' , fps:float = 24):
+    def __init__(self,port_type:str = 'file',gui_port = '/dev/shm/gui_port' , fps:float = 24, mode='human'):
         self.field_range = None
         self.cam_bound = None
         self.viewer = None
@@ -13,7 +13,7 @@ class GUI(object):
         self.port_type = port_type
         self.gui_port = gui_port
         self.fps = fps
-        self.mode = 'human'
+        self.mode = mode
 
 
     def _read_data(self):
