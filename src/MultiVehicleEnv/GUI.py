@@ -160,6 +160,8 @@ class GUI(object):
             info = info + str(key)+':'+str(self.info[key])+'\n'
 
         results = []
+        import pdb
+        pdb.set_trace()
             
         results.append(self.viewer.render(time = '%.1f'%(self.total_time),info = info,return_rgb_array = self.mode=='rgb_array'))
 
