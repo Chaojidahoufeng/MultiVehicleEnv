@@ -167,7 +167,8 @@ class MultiVehicleEnv(gym.Env):
             self.GUI = GUI(port_type='direct', gui_port=self, fps = 24)
             self.GUI.init_viewer()
             self.GUI.init_object()
-        self.GUI._render()
+        results = self.GUI._render()
+        return results
     
     def ros_step(self,total_time):
         self.total_time = total_time

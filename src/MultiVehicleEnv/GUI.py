@@ -158,8 +158,12 @@ class GUI(object):
         info = ''
         for key in self.info.keys():
             info = info + str(key)+':'+str(self.info[key])+'\n'
+
+        results = []
             
-        self.viewer.render(time = '%.1f'%(self.total_time),info = info,return_rgb_array = self.mode=='rgb_array')
+        results.append(self.viewer.render(time = '%.1f'%(self.total_time),info = info,return_rgb_array = self.mode=='rgb_array'))
+
+        return results
 
     def _render_target(self):
         self.init_viewer()
